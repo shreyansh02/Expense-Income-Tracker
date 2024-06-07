@@ -12,3 +12,4 @@ router.post('/add-income', addIncome)
     .delete('/delete-expense/:id', deleteExpense)
 
 module.exports = router
+
