@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { auth } from '../firebaseConfig';
+import { auth, googleProvider } from '../firebaseConfig'; // Ensure googleProvider is exported from firebaseConfig
 import styled from 'styled-components';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import login from '../img/login.png'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import login from '../img/login.png';
 
 const LoginSignUp = () => {
   const [email, setEmail] = useState('');
@@ -29,6 +29,15 @@ const LoginSignUp = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      alert('Logged in with Google');
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <CenteredContainer>
       <ContentContainer>
@@ -36,7 +45,7 @@ const LoginSignUp = () => {
           <img src={login} alt="Login/SignUp" />
         </div>
         <div className="right">
-          <h1>Hello, Welcome!</h1>
+          <h1>Hello, Welcome To Expense Tracker!</h1>
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -56,6 +65,9 @@ const LoginSignUp = () => {
               <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
             </div>
           </form>
+          <button onClick={handleGoogleSignIn} className="google-signin">
+            Sign in with Google
+          </button>
           <div className="toggle">
             {isLogin ? (
               <p>
@@ -76,8 +88,8 @@ const LoginSignUp = () => {
 
 const CenteredContainer = styled.div`
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   background-color: #f0f0f0; /* optional background color */
 `;
@@ -147,6 +159,20 @@ const ContentContainer = styled.div`
         }
       }
     }
+    .google-signin {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      background: #3495eb;
+      color: white;
+      &:hover {
+        background: #c23321;
+      }
+    }
     .toggle {
       margin-top: 1rem;
       span {
@@ -158,9 +184,8 @@ const ContentContainer = styled.div`
     p {
       color: red;
       margin-top: 1rem;
+    }
   }
-}
 `;
-
 
 export default LoginSignUp;
