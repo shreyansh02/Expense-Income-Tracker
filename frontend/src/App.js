@@ -10,6 +10,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
+
 import LoginSignUp from './Components/LoginSignUp';
 
 function App() {
@@ -75,6 +76,9 @@ const AppStyled = styled.div`
   height: 100vh;
   background-image: url(${props => props.bg});
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   main{
     flex: 1;
     background: rgba(252, 246, 249, 0.78);
