@@ -48,3 +48,4 @@ exports.deleteExpense = async (req, res) =>{
             res.status(500).json({message: 'Server Error'})
         })
 }
+
