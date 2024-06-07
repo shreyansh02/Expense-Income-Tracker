@@ -6,6 +6,7 @@ import Form from '../Form/Form.js';
 import IncomeItem from '../IncomeItem/IncomeItem.js';
 import ExpenseForm from './ExpenseForm.js';
 
+
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
@@ -75,4 +76,5 @@ const ExpenseStyled = styled.div`
     }
 `;
 
-export default Expenses
+export default Expenses;
+
