@@ -73,4 +73,4 @@ const IncomeStyled = styled.div`
     }
 `;
 
-export default Income
+export default Income;
