@@ -144,4 +144,5 @@ const FormStyled = styled.form`
         }
     }
 `;
-export default Form
+
+export default Form;
