@@ -166,4 +166,4 @@ const IncomeItemStyled = styled.div`
     }
 `;
 
-export default IncomeItem
+export default IncomeItem;
