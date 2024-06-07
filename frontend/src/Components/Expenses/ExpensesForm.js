@@ -6,7 +6,6 @@ import { useGlobalContext } from '../../context/globalContext';
 import Button from '../Button/Button';
 import { plus } from '../../utils/Icons';
 
-
 function ExpenseForm() {
     const {addExpense, error, setError} = useGlobalContext()
     const [inputState, setInputState] = useState({
@@ -144,4 +143,5 @@ const ExpenseFormStyled = styled.form`
         }
     }
 `;
-export default ExpenseForm
+    
+export default ExpenseForm;
