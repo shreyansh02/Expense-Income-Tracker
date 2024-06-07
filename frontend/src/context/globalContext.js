@@ -111,4 +111,6 @@ export const GlobalProvider = ({children}) => {
 
 export const useGlobalContext = () =>{
     return useContext(GlobalContext)
+
+    
 }
